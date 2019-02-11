@@ -1,23 +1,24 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import '../lib/polyfill';
-import { withMediaQuery } from './media-query';
-import RouterEvents from '../lib/router-events';
-import { trackPageview } from '../lib/analytics';
+import "../lib/polyfill";
+import { withMediaQuery } from "./media-query";
+import RouterEvents from "../lib/router-events";
+import { trackPageview } from "../lib/analytics";
 
-RouterEvents.on('routeChangeComplete', url => {
-  trackPageview(url);
+RouterEvents.on("routeChangeComplete", url => {
+  //trackPageview(url);
+  dataLayer.push({ event: "optimize.activate" });
 });
 
 export default withMediaQuery(({ title, description, children }) => (
   <div>
     <Head>
-      <title>{title || 'Next.js - The React Framework'}</title>
+      <title>{title || "Next.js - The React Framework"}</title>
       <meta
         name="description"
         content={
           description ||
-          'Next.js is a lightweight framework for static and server-rendered applications'
+          "Next.js is a lightweight framework for static and server-rendered applications"
         }
       />
     </Head>
@@ -46,13 +47,14 @@ export default withMediaQuery(({ title, description, children }) => (
           min-height: 100%;
           margin: 0;
           line-height: 1.65;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-            'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+            "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+            "Helvetica Neue", sans-serif;
           font-size: 16px;
           font-weight: 400;
           min-width: 320px;
           direction: ltr;
-          font-feature-settings: 'kern';
+          font-feature-settings: "kern";
           text-rendering: optimizeLegibility;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
@@ -67,7 +69,7 @@ export default withMediaQuery(({ title, description, children }) => (
           background-color: #0076ff;
           color: #fff;
         }
-        [role='grid']:focus {
+        [role="grid"]:focus {
           outline: none;
         }
         svg {
@@ -88,12 +90,13 @@ export default withMediaQuery(({ title, description, children }) => (
         }
         code {
           font-size: 0.9em;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-            Bitstream Vera Sans Mono, Courier New, monospace, serif;
+          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+            serif;
         }
         code:before,
         code:after {
-          content: '\`';
+          content: "\`";
         }
         pre code:before,
         pre code:after {
@@ -188,7 +191,7 @@ export default withMediaQuery(({ title, description, children }) => (
             display: unset;
           }
         }
-        a[role='button'] {
+        a[role="button"] {
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
@@ -224,8 +227,8 @@ export default withMediaQuery(({ title, description, children }) => (
           position: absolute;
         }
 
-        code[class*='language-'],
-        pre[class*='language-'] {
+        code[class*="language-"],
+        pre[class*="language-"] {
           color: #000;
           direction: ltr;
           text-align: left;
@@ -264,7 +267,7 @@ export default withMediaQuery(({ title, description, children }) => (
         .token.atrule,
         .language-autohotkey .token.selector,
         .language-json .token.boolean,
-        code[class*='language-css'] {
+        code[class*="language-css"] {
           font-weight: 600;
         }
         .language-json .token.boolean {
